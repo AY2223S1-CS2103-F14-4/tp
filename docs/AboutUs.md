@@ -48,11 +48,11 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Kiyan Ang Ping Young
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/kiyan.jpg" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/kynapy)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
