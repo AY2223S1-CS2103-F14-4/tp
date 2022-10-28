@@ -8,8 +8,10 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import bookface.commons.core.Messages;
 import bookface.commons.core.index.Index;
 import bookface.commons.util.StringUtil;
+import bookface.logic.commands.ThemeCommand;
 import bookface.logic.parser.exceptions.ParseException;
 import bookface.model.book.Author;
 import bookface.model.book.Title;
@@ -36,6 +38,20 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
+     * Parses user input to accept only supported themes.
+     * @param args the user input
+     * @return the supported theme
+     * @throws ParseException if theme is not supported
+     */
+    public static String parseTheme(String args) throws ParseException {
+        if (!args.matches(ThemeCommand.THEME_REGEX)) {
+            throw new ParseException(Messages.MESSAGE_INVALID_THEME);
+        }
+
+        return args.substring(ThemeCommand.COMMAND_WORD.length() + 1);
     }
 
     /**

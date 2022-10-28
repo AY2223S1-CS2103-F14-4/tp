@@ -7,6 +7,7 @@ import bookface.MainApp;
 import bookface.commons.core.LogsCenter;
 import bookface.commons.util.StringUtil;
 import bookface.logic.Logic;
+import bookface.logic.commands.ThemeCommand;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -23,9 +24,8 @@ public class UiManager implements Ui {
 
     private static final Logger logger = LogsCenter.getLogger(UiManager.class);
     private static final String ICON_APPLICATION = "/images/book_face_32.png";
-
+    private static MainWindow mainWindow;
     private final Logic logic;
-    private MainWindow mainWindow;
 
     /**
      * Creates a {@code UiManager} with the given {@code Logic}.
@@ -87,4 +87,19 @@ public class UiManager implements Ui {
         System.exit(1);
     }
 
+    /**
+     * Applies the theme to BookFace
+     * @param theme the theme to set
+     */
+    public static void applyTheme(String theme) {
+        switch (theme) {
+        case ThemeCommand.DARK_THEME:
+            mainWindow.handleDarkTheme();
+            break;
+        case ThemeCommand.LIGHT_THEME:
+            mainWindow.handleLightTheme();
+            break;
+        default:
+        }
+    }
 }
