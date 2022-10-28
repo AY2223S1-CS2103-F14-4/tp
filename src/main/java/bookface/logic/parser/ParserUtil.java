@@ -48,10 +48,16 @@ public class ParserUtil {
      */
     public static String parseTheme(String args) throws ParseException {
         if (!args.matches(ThemeCommand.THEME_REGEX)) {
-            throw new ParseException(Messages.MESSAGE_INVALID_THEME);
+            throw new ParseException(
+                    String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ThemeCommand.MESSAGE_USAGE)
+            );
         }
 
-        return args.substring(ThemeCommand.COMMAND_WORD.length() + 1);
+        if ((args.equals(ThemeCommand.DARK_THEME)) || (args.equals(ThemeCommand.LIGHT_THEME))) {
+            return args;
+        } else {
+            throw new ParseException(Messages.MESSAGE_INVALID_THEME);
+        }
     }
 
     /**

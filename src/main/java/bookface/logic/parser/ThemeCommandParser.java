@@ -1,6 +1,5 @@
 package bookface.logic.parser;
 
-import bookface.commons.core.Messages;
 import bookface.logic.commands.ThemeCommand;
 import bookface.logic.parser.exceptions.ParseException;
 
@@ -10,12 +9,14 @@ import bookface.logic.parser.exceptions.ParseException;
 public class ThemeCommandParser implements Parseable<ThemeCommand> {
     @Override
     public ThemeCommand parse(String args) throws ParseException {
+        String trimmedArgs = args.trim();
+
         try {
-            String theme = ParserUtil.parseTheme(args);
+            String theme = ParserUtil.parseTheme(trimmedArgs);
             return new ThemeCommand(theme);
         } catch (ParseException ex) {
             throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ThemeCommand.MESSAGE_USAGE)
+                    ex.getMessage()
             );
         }
     }

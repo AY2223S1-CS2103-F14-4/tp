@@ -14,9 +14,10 @@ public class ThemeCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Theme changed.";
     public static final String DARK_THEME = "dark";
     public static final String LIGHT_THEME = "light";
-    public static final String MESSAGE_USAGE = ThemeCommand.generateMessage(COMMAND_WORD,
-            "Change the theme of BookFace. Supported themes: dark, light", COMMAND_WORD);
-    public static final String THEME_REGEX = "theme [A-Za-z]";
+    public static final String MESSAGE_USAGE = Command.generateMessage(COMMAND_WORD,
+            "Changes the theme of BookFace. Supported themes: dark, light",
+            COMMAND_WORD + " " + LIGHT_THEME);
+    public static final String THEME_REGEX = "([a-z]+)";
 
     public ThemeCommand(String theme) {
         UiManager.applyTheme(theme);
