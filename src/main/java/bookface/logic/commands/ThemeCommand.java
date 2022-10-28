@@ -2,7 +2,6 @@ package bookface.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import bookface.logic.commands.add.AddCommand;
 import bookface.model.Model;
 import bookface.ui.UiManager;
 
